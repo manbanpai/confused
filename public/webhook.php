@@ -44,7 +44,6 @@ if ($hash === $payloadHash) {
     fwrite($fs, $res_log);
     $fs and fclose($fs);
 
-
 } else {
     $res_log  = 'Error:'.PHP_EOL;
     $res_log .= $content['head_commit']['author']['name'] . ' 在' . date('Y-m-d H:i:s') . '向' . $content['repository']['name'] . '项目的' . $content['ref'] . '分支push了' . count($content['commits']) . '>个commit：' . PHP_EOL;
