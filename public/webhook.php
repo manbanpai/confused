@@ -39,6 +39,7 @@ if ($hash === $payloadHash) {
     $res_log .= $res.PHP_EOL;
     $res_log .= '======================================================================='.PHP_EOL;
     fwrite($fs,$content);
+    
     fwrite($fs, $res_log);
     $fs and fclose($fs);
 
