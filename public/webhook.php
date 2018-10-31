@@ -16,7 +16,8 @@ $fs = fopen('../storage/logs/gitHubAuto_hook.log', 'a');
 
 //获取GitHub发送的内容
 $json = file_get_contents('php://input');
-$content = json_decode($json, true);
+$json = substr($json,7);
+$content = json_decode(urldecode($json), true);
 //github发送过来的签名
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
