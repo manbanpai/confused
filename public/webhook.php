@@ -40,7 +40,6 @@ if ($hash === $payloadHash) {
     $res_log .= '======================================================================='.PHP_EOL;
 
     fwrite($fs,'=='.$json.'==');
-
     fwrite($fs, $res_log);
     $fs and fclose($fs);
 
