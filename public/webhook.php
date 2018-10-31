@@ -21,7 +21,7 @@ $content = json_decode(urldecode($json), true);
 //github发送过来的签名
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
-fwrite($fs,'==1'.$signature.'==');
+fwrite($fs,'=1='.$signature.'=1=');
 
 if (!$signature) {
     fclose($fs);
@@ -31,7 +31,7 @@ if (!$signature) {
 list($algo, $hash) = explode('=', $signature, 2);
 //计算签名
 $payloadHash = hash_hmac($algo, $json, $secret);
-fwrite($fs,'==2'.$payloadHash.'==3'.$algo.'==4'.$hash.'===');
+fwrite($fs,'=2='.$payloadHash.'=2='.$algo.'=3='.$hash.'=4==');
 // 判断签名是否匹配
 if ($hash === $payloadHash) {
     $cmd = "cd $target && git pull origin master";
