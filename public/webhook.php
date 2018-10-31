@@ -5,7 +5,7 @@
  * Date: 2018/10/30
  * Time: 17:02
  */
-$target = '/home/wwwroot/confused'; // 生产环境web目录
+$target = '/home/www/confused'; // 生产环境web目录
 //密钥
 $secret = "123456";
 $wwwUser = 'www';
