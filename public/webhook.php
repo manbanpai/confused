@@ -20,7 +20,7 @@ $json = substr($json,7);
 $content = json_decode(urldecode($json), true);
 //github发送过来的签名
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
-
+fwrite($fs,'=-1='.$json.'=-1=');
 fwrite($fs,'=1='.$signature.'=1=');
 
 if (!$signature) {
