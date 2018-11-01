@@ -33,7 +33,9 @@ $payloadHash = hash_hmac($algo, $json, $secret);
 if ($hash === $payloadHash) {
     $cmd = "cd $target && git pull";
     $res = shell_exec($cmd);
+    
     fwrite($fs, '=1='.json_encode($content).'=1=');
+
     $res_log .= 'Success:'.PHP_EOL;
     $res_log .= $content['head_commit']['author']['name'] . ' 在' . date('Y-m-d H:i:s') . '向' . $content['repository']['name'] . '项目的' . $content['ref'] . '分支push了' . count($content['commits']) . '个commit：' . PHP_EOL;
     $res_log .= $res.PHP_EOL;
