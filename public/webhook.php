@@ -35,6 +35,7 @@ $payloadHash = hash_hmac($algo, $json, $secret);
 
 // 判断签名是否匹配
 if ($hash === $payloadHash) {
+    
     $cmd = "cd $target && git pull origin master";
     $res = shell_exec($cmd);
 
