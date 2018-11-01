@@ -39,11 +39,15 @@ if ($hash === $payloadHash) {
     $cmd = "cd $target && git pull origin master";
     $res = shell_exec($cmd);
 
+    $cmd1 = "chown -R {$wwwUser}:{$wwwGroup} $target/";
+    $res1 = shell_exec($cmd1);
+
     fwrite($fs, "==".$res."==");
 
     $res_log .= 'Success:'.PHP_EOL;
     $res_log .= $content['head_commit']['author']['name'] . ' 在' . date('Y-m-d H:i:s') . '向' . $content['repository']['name'] . '项目的' . $content['ref'] . '分支push了' . count($content['commits']) . '个commit：' . PHP_EOL;
     $res_log .= $res.PHP_EOL;
+    $res_log .= $res1.PHP_EOL;
     $res_log .= '======================================================================='.PHP_EOL;
 
     fwrite($fs, $res_log);
