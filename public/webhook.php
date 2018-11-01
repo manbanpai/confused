@@ -20,6 +20,7 @@ $json = file_get_contents('php://input');
 $str = urldecode(substr($json,8));
 
 $content = json_decode($str, true);
+
 //github发送过来的签名
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
@@ -31,6 +32,7 @@ if (!$signature) {
 list($algo, $hash) = explode('=', $signature, 2);
 //计算签名
 $payloadHash = hash_hmac($algo, $json, $secret);
+
 // 判断签名是否匹配
 if ($hash === $payloadHash) {
     $cmd = "cd $target && git pull";
