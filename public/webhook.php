@@ -17,7 +17,9 @@ $fs = fopen('../storage/logs/gitHubAuto_hook.log', 'a');
 //获取GitHub发送的内容
 $json = file_get_contents('php://input');
 
-$content = json_decode(urldecode(substr($json,7)), true);
+$str = urldecode(substr($json,8));
+
+$content = json_decode($str, true);
 //github发送过来的签名
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
@@ -33,7 +35,7 @@ $payloadHash = hash_hmac($algo, $json, $secret);
 if ($hash === $payloadHash) {
     $cmd = "cd $target && git pull";
     $res = shell_exec($cmd);
-    
+
     fwrite($fs, '=1='.json_encode($content).'=1=');
 
     $res_log .= 'Success:'.PHP_EOL;
