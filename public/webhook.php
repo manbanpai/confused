@@ -33,7 +33,7 @@ $payloadHash = hash_hmac($algo, $json, $secret);
 fwrite($fs,'=2='.$payloadHash.'=2='.$algo.'=3='.$hash.'=4==');
 // 判断签名是否匹配
 if ($hash === $payloadHash) {
-    $cmd = "cd $target && git pull origin master";
+    $cmd = "cd $target && git pull";
     $res = shell_exec($cmd);
 
     $res_log .= 'Success:'.PHP_EOL;
