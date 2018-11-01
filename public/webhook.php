@@ -36,11 +36,11 @@ $payloadHash = hash_hmac($algo, $json, $secret);
 // 判断签名是否匹配
 if ($hash === $payloadHash) {
 
-    $cmd = "cd $target && git pull origin master";
-    $res = shell_exec($cmd);
-
-    $cmd1 = "chown -R {$wwwUser}:{$wwwGroup} $target/";
+    $cmd1 = "su - www";
     $res1 = shell_exec($cmd1);
+
+    $cmd = "cd $target && git pull";
+    $res = shell_exec($cmd);
 
     fwrite($fs, "==".$res."==");
 
