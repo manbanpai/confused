@@ -37,9 +37,6 @@ $res_log = '';
 // 判断签名是否匹配
 if ($hash === $payloadHash) {
 
-    $cmd1 = "su - www";
-    $res1 = shell_exec($cmd1);
-
     $cmd = "cd $target && git pull";
     $res = shell_exec($cmd);
 
