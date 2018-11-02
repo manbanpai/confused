@@ -19,6 +19,6 @@ Route::get('/', function () {
     mysqli_query($link,'show tables');*/
 
     return view('welcome',function (){
-        return 11331;
+        return 1133155;
     });
 });
