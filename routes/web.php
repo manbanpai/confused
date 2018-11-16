@@ -12,13 +12,7 @@
 */
 
 Route::get('/', function () {
-/*
-    $link = mysqli_connect('172.17.179.14','root','iloveyou123');
-    mysqli_select_db('confused_db',$link);
 
-    mysqli_query($link,'show tables');*/
-
-    /*return view('welcome',function (){
-        return 113315577;
-    });*/
 });
+
+Route::get('post','\App\Http\Controller\PostController@index');
