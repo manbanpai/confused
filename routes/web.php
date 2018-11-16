@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-
+    return view('welcome');
 });
 
-Route::get('post','\App\Http\Controller\PostController@index');
+Route::get('post','\App\Http\Controllers\PostController@index');
+.env
+.gitignore
+.user.ini
