@@ -16,6 +16,3 @@ Route::get('/', function () {
 });
 
 Route::get('post','\App\Http\Controllers\PostController@index');
-.env
-.gitignore
-.user.ini
